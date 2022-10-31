@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Min totebag</title>
+    <link rel="icon" type="image/x-icon" href="Bilde2.png"> <!--gir ikon til tittel-->
+    <link rel="stylesheet" href="./Bagger/totebag.css"> <!--link til css ark-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" > <!--Tillater responsiv nettside-->
+</head>
+
+<body>
+    <div id="topptekst">
+        <div id="div_meny">
+            <header class="header"> <!--mer eller mindre samme funksjon som div, container-->
+                <!-- <a href="/" class="logo">Min Totebag</a> kun html for logo, ingen funksjon pa menyen -->
+                <input class="menu-btn" type="checkbox" id="menu-btn">   <!--gjor det mulig a trykke av og pa menyknappinput:brukerstyrt-->
+                <label class="menu-icon" for="menu-btn"><span class="nav-icon"></span></label> <!--merknad for checkboxen-->
+                <!--menyikonet er det som er inni span-->
+                <ul class="menu"> <!--uordnet liste-->
+                    <li><a href="#hovedsiden">Hovedsiden</a></li> <!--list items, liste elementer-->
+                    <li><a href="./Bagger/Om.html">Om meg</a></li>
+                    <li><a href="./Bagger/Meny/bildegalleri.html">Bildegalleri</a></li>
+                    <li><label class="menu2-icon" for="menu2-btn" href="#totebags">Totebags</label></li>
+                        <input class="menu2-btn" type="checkbox" id="menu2-btn">
+                        <ul class="menu2">
+                            <li><a href="./Bagger/Meny/Broderi.html">Broderi</a></li>
+                            <li><a href="./Bagger/Meny/print.html">Print</a></li>
+                        </ul>
+                </ul>
+            </header>
+        </div>
+
+        <div>
+            <h1> Min totebag </h1>  
+        </div>
+
+        <div>
+            <!--ekstra div for å "hacke" logoen til høyre-->
+        </div>
+
+        <div id="div_logo" >
+            <a href="./Bagger/Om.html"><h4>OM</h4> </a>
+        </div> 
+
+    </div>
+
+    <div id="top_box">  
+        <div class="slideshow-container"> 
+
+            <div class="img_slideshow">
+                <img id="top_img_5" src="./Bilder/top_imgs/top_img_5.jpg" width="100%"  alt="tema 5">
+            </div>
+
+            <div class="img_slideshow">
+                <img id="top_img_4" src="./Bilder/top_imgs/top_img_4.jpg" width="100%" alt="tema 4">
+            </div>
+
+            <div class="img_slideshow">
+                <img id="top_img_3" src="./Bilder/top_imgs/top_img_3.jpg" width="100%" alt="tema 3">
+            </div>
+
+            <div class="img_slideshow">
+                <img id="top_img_2" src="./Bilder/top_imgs/top_img_2.jpg" width="100%" alt="tema 2">
+            </div>
+
+            <div class="img_slideshow">
+                <img id="top_img_1" src="./Bilder/top_imgs/top_img_1.jpg" width="100%" alt="tema 1">
+                <!-- width="896" height="448" alt="tema 1"--> <!--Gammel definison av bildene-->
+            </div>
+
+            <!--piler frem og tilbake-->
+            <a class="prev" onclick="plusSlide(-1)">&#10094;</a> 
+            <a class="next" onclick="plusSlide(1)">&#10095;</a>          
+        </div>
+        <br>
+
+        <div style="text-align:center"> <!--prikkene under bildene-->
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </div>
+
+    <div id="gallery">
+        <div>
+            <a href="./Bagger/thebeatles.html"><img class="bag" src="./Bilder/thebeatles.jpg" width="288" height="384" alt="the beatles bag"></a>  
+        </div>
+        <div>           
+            <a href="./Bagger/wave.html"><img class="bag" src="./Bilder/wave.jpg" width="288" height="384" alt="the great wave bag"></a>
+        </div>
+        <div>        
+            <a href="./Bagger/butterflies.html"><img class="bag" src="./Bilder/butterflies.jpg" width="288" height="384" alt="two butterflies bag"></a>
+        </div>
+        <div>            
+            <a href="./Bagger/face.html" ><img class="bag" src="./Bilder/face.jpg" width="288" height="384" alt="face in hands bag"></a>
+        </div>
+        <div>            
+            <a href="./Bagger/mirror.html"><img class="bag" src="Bilder/mirror.jpg" width="288" height="384" alt="surreal mirror bag"></a>
+        </div>
+        <div>           
+            <a href="./Bagger/aot.html" ><img class="bag" src="./Bilder/aot.jpg" width="288" height="384" alt="attack on titan bag"></a>
+        </div>
+        <div>             
+            <a href="./Bagger/butterfly.html" ><img class="bag" src="./Bilder/butterfly.jpg" width="288" height="384" alt="butterfly and flower bag"></a>
+        </div>
+        <div>            
+            <a href="./Bagger/demon.html" ><img class="bag" src="./Bilder/demon.jpg" width="288" height="384" alt="demon slayer bag"></a>
+        </div>
+
+    </div>
+
+    <div id="info_boks">
+        <div id="kontakt_info">
+            <p>Spørsmål? Bare ta kontakt!</p>
+            <p>E-post: e-post@epost.no | Instagram: Instagram_bruker</p>
+        </div>
+        
+    </div>
+    
+<script>
+    let slideIndex = 0; //ny variabel
+    showSlides();
+
+   // Next/previous knapper
+   function plusSlide(n) { 
+        showSlides(slideIndex += n); //previous har -1, og next har +1 som bestemmer hvilken vei bildene går
+        clearInterval(a)
+        a = setInterval(showSlides, 2000);
+    }
+
+    // Dottene 
+    function currentSlide(n) { //gjør det mulig å bytte bilde ved å trykke på prikkene
+        showSlides(slideIndex = n);
+    }
+
+let a = setInterval(showSlides, 2000);
+function showSlides() {
+  let slides = document.getElementsByClassName("img_slideshow"); //variabelen  "slides" defineres som 
+  //elementene fra klassen [img_slideshow], alstå bildene
+  for (let i = 0; i < slides.length; i++) { //definerer ny variabel [i] lik null, variabelen [slides.length] er i + 1, når [i] 
+    //er mindre enn [slides.length]. Løkken kjører en gang for hvert bilde
+    slides[i].style.display = "none"; //skjuler hvert enkelt bilde, etter at det er vist
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+//   setTimeout(showSlides, 2000); // bytter bilde etter 2 sekunder
+}
+</script>
+    
+</body>
+</html>
