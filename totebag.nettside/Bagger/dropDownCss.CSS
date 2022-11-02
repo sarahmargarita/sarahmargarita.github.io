@@ -1,0 +1,126 @@
+/*Drop-Down Meny */
+a,label{
+    color: #73648A;
+    background-color: #B5D2CB;
+}
+
+.menu2 a{
+    color:#73648A;
+    background-color: #A8AEC1;
+}
+
+.header{
+    position: sticky;
+    width: 100%;
+    z-index: 100; /*gir lag til elementene i nettsiden, setter header i det øverste laget slik at hvis man scroller kommer andre elementer under header*/
+}
+
+.header ul{ /*den uodrnede listen i header*/
+    margin: 0;
+    padding:0;
+    list-style:none; /*fjerner punktene (bullet-points)*/
+    overflow: hidden; /*alle elementer som er for store for betingelsene vi har satt blir gjemt by default*/
+
+}
+
+.header ul a, .header ul label{ /*alle a elementene inne i den uordnede listen i header*/
+    display: block; /*gjor det mulig a trykke pa a elementet i nettsiden uten at man nodvendigvis trykker akkurat pa skirften/linken*/
+    border: 1px solid #73648A;
+    border-left: 0px;
+    padding: 20px; /*gir oss 20px padding fra alle siden*/
+    border-right: #bbb; /*nar a elemente er ved siden av hverandre pa nettsiden vil dette gi et skille mellom elementene som er synelig for bruker*/
+    text-decoration: none; /*fjerner linjen under linknavnet*/
+}
+
+
+.header ul:first-child { /*gir border til øvert på meny (first-child) er første list-element "hovedsiden"*/
+    border-top: 2px;
+}
+.header ul:last-child { /*gir border til nederst på meny (last-child) er siste list-element "ekstra"*/
+    border-bottom: 2px;
+}
+
+.header ul a:hover, .header ul label:hover{ /*endringer som skjer nar pilen gar over elementet pa nettsiden*/
+    background-color: #73648A;
+    color:#B5D2CB;
+}
+
+.header .logo{
+    float:left; /*plaserer logoen til venste for alle andre elementer, blir utliknet av "clear" linje48*/
+    display: block; /*default er inline, man trenger block for a se den */
+    font-size:2em; /*tilsvarer skrifstrorrelse 32 i word omtrent*/
+    padding: 10px 20px; /*10px over og under, 20px hoyre og venstre*/
+    text-decoration: none;
+}
+
+.header .menu{
+    clear:both; /*tvinger header og den uordnede listen "menu" under logoen. utlikner "float:left" linje 40*/
+    max-height:0; /*gjemmer liste-elementene*/
+    transition:max-height .2s ease-out; /*blir en overgang nar man trykker pa menyknappen*/
+}
+
+.header .menu-icon{
+    border:3px solid #73648A;
+    background-color: #A8AEC1;
+    padding: 28px 20px; 
+    position: relative; /*med relativ position kan vi senere bruke absolutt positison pa child elements*/
+    float:left; /*plasserer logo-ikonet pa hoyre side av nettisden*/
+    cursor: pointer;    /*nar man hover blir pil til hand*/
+}
+
+.header .menu-icon .nav-icon{
+    background: #73648A;
+    display:block; /*fjerner inline default, gjor det mulig a definere hoyde og bredde osv*/
+    height: 2px;
+    width:18px; 
+    position: relative;
+    transition: background .2s ease-out; /*grunnlag for animasjon*/
+}
+
+.header .menu-icon .nav-icon:before{ /*pseudo-element, pseudo selector*/
+    background: #73648A;
+    content:""; /*ingenting forlopig*/
+    display:block;
+    height: 100%;
+    width: 100%;  /*bredde og hoyde pa 100%for a holde samme bredde/hoyde som .header.menu-icon.nav-icon, altsa 18 pg 2px*/
+    position: absolute; /*setter elementet pa samme sted som .header.menu-icon.nav-icon */
+    transition: all .2s ease-out;
+    top:5px; /*flytter elementet ned med 5px*/
+}
+
+.header .menu-icon .nav-icon:after{ /*pseudo-element, pseudo selector*/
+    background: #73648A;
+    content:""; /*ingenting forlopig*/
+    display:block;
+    height: 100%;
+    width: 100%;  /*bredde og hoyde pa 100%for a holde samme bredde/hoyde som .header.menu-icon.nav-icon, altsa 18 pg 2px*/
+    position: absolute; /*setter elementet pa samme sted som .header.menu-icon.nav-icon */
+    transition: all .2s ease-out;
+    top:-5px; /*flytter elementet opp med 5px*/
+}
+
+.header .menu-btn{ /*når menyknappen ikke er trykket på/unchecked,*/
+    display:none; /*da hjemmes alle lste-elementene*/
+}
+
+.header .menu-btn:checked ~ .menu{ /*nar menyknappen er trykket pa, vil koden se etter (~) neste ledige sosken som har menu som class og endre max-height*/
+    max-height: 500px; /* utvider høyden, får frem de tidligere gjemte elementene */
+}
+
+.header .menu2{
+    clear:both; /*tvinger header og den uordnede listen "menu" under logoen. utlikner "float:left" linje 40*/
+    max-height:0; 
+    transition:max-height .2s ease-out;
+}
+.header .menu2-icon .nav-icon2{
+    color: #73648A;
+    display: list-item; /*iconet til meny2 er list-item*/
+}
+
+.header .menu2-btn{
+    display:none;
+}
+
+.header .menu2-btn:checked~.menu2{
+    max-height: 500px;
+}

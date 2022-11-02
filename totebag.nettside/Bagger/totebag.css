@@ -1,0 +1,374 @@
+body {
+    background-color: #B5D2CB;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 10px;
+}
+/*#region Toppboksen*/  
+
+#topptekst {
+    display: grid;
+    grid-template-columns: 30% 40% 20% 10%;
+    grid-template-rows: 80px;
+    margin: 10px;
+    border: 5px solid #A8AEC1;
+    background-color: #B5D2CB;
+    margin: auto;
+    text-align: center;
+    position: sticky; /* blanding av relative og fixed, er plassert øvet på nettsiden, men følger etter når man skroller*/
+    top: 0%;      /*ikke noe mellomrom mellom div og kantlinje til nettside */
+    margin-bottom: 10px;   
+    z-index: 10;
+}
+
+#div_meny{
+  margin: 10px;
+}
+
+#div_overskrift a{
+  text-decoration: none;
+}
+
+#div_logo {
+  width: 50%;
+  margin: auto;
+  background-color: #A8AEC1;   /* lavender bakgrunnsfarge */
+  border: 3px solid #73648A; /* mørk lilla/plomme kantlinje */
+  border-radius: 50% /*gir runde kanter til border */
+}
+#div_logo a{
+  text-decoration: none;
+  width:50%;
+  height: 100%;
+  /*hvordan kan man hover og klikke på hele logoen og ikke bare over teksten*/
+}
+
+h1 {
+    color: #73648A;
+    text-decoration: none;
+    text-align: center;
+    /* font-size: 2.5vw; */
+}
+
+
+/*#endregion*/
+
+/* #region Drop-down meny */
+a,label{
+  color: #73648A;
+  background-color: #B5D2CB;
+  font-weight: bold; /*gjør skriften tykkere og derfor lettere å lese*/
+}
+
+.menu2 a{
+  color:#73648A;
+  background-color: #A8AEC1;
+}
+
+.header{
+  /* position: sticky;  */ /*gjør tilsynelatende ingenting, blir overkjørt av #topptekst, position: sticky; ?*/
+  width: 100%;
+  z-index: 100; /*gir lag til elementene i nettsiden, setter header i det øverste laget slik at hvis man scroller kommer andre elementer under header*/
+}
+
+.header ul{ /*den uodrnede listen i header*/
+  margin: 0;
+  padding:0;
+  list-style:none; /*fjerner punktene (bullet-points)*/
+  overflow: hidden; /*alle elementer som er for store for betingelsene vi har satt blir gjemt by default*/
+}
+
+.header ul a, .header ul label{ /*alle a elementene inne i den uordnede listen i header*/
+  display: block; /*gjor det mulig a trykke pa a elementet i nettsiden uten at man nodvendigvis trykker akkurat pa skirften/linken*/
+  border: 1px solid #73648A;
+  border-left: 0px;
+  padding: 20px; /*gir oss 20px padding fra alle siden*/
+  border-right: #bbb; /*nar a elemente er ved siden av hverandre pa nettsiden vil dette gi et skille mellom elementene som er synelig for bruker*/
+  text-decoration: none; /*fjerner linjen under linknavnet*/
+}
+
+
+.header ul:first-child { /*gir border til øvert på meny (first-child) er første list-element "hovedsiden"*/
+  border-top: 2px;
+}
+
+.header ul:last-child { /*gir border til nederst på meny (last-child) er siste list-element "ekstra"*/
+  border-bottom: 2px;
+}
+
+.header ul a:hover, .header ul label:hover{ /*endringer som skjer nar pilen gar over elementet pa nettsiden*/
+  background-color: #73648A;
+  color:#B5D2CB;
+}
+
+.header .logo{
+  float:left; /*plaserer logoen til venste for alle andre elementer, blir utliknet av "clear" linje48*/
+  display: block; /*default er inline, man trenger block for a se den */
+  font-size:2em; /*tilsvarer skrifstrorrelse 32 i word omtrent*/
+  padding: 10px 20px; /*10px over og under, 20px hoyre og venstre*/
+  text-decoration: none;
+}
+
+.header .menu{
+  clear:both; /*tvinger header og den uordnede listen "menu" under logoen. utlikner "float:left" linje 40*/
+  max-height:0; /*gjemmer liste-elementene*/
+  transition:max-height .2s ease-out; /*blir en overgang nar man trykker pa menyknappen*/
+}
+
+.header .menu-icon{
+  border:3px solid #73648A;
+  background-color: #A8AEC1;
+  padding: 28px 20px; 
+  position: relative; /*med relativ position kan vi senere bruke absolutt positison pa child elements*/
+  float:left; /*plasserer logo-ikonet pa hoyre side av nettisden*/
+  cursor: pointer;    /*nar man hover blir pil til hand*/
+}
+
+.header .menu-icon .nav-icon{
+  background: #73648A;
+  display:block; /*fjerner inline default, gjor det mulig a definere hoyde og bredde osv*/
+  height: 2px;
+  width:18px; 
+  position: relative;
+  transition: all .2s ease-out; /*grunnlag for animasjon*/
+}
+
+.header .menu-icon .nav-icon:before{ /*pseudo-element, pseudo selector*/
+  background: #73648A;
+  content:""; /*ingenting forlopig*/
+  display:block;
+  height: 100%;
+  width: 100%;  /*bredde og hoyde pa 100%for a holde samme bredde/hoyde som .header.menu-icon.nav-icon, altsa 18 pg 2px*/
+  position: absolute; /*setter elementet pa samme sted som .header.menu-icon.nav-icon */
+  transition: all .2s ease-out;
+  top:5px; /*flytter elementet ned med 5px*/
+}
+
+.header .menu-icon .nav-icon:after{ /*pseudo-element, pseudo selector*/
+  background: #73648A;
+  content:""; /*ingenting forlopig*/
+  display:block;
+  height: 100%;
+  width: 100%;  /*bredde og hoyde pa 100%for a holde samme bredde/hoyde som .header.menu-icon.nav-icon, altsa 18 pg 2px*/
+  position: absolute; /*setter elementet pa samme sted som .header.menu-icon.nav-icon */
+  transition: all .2s ease-out;
+  top:-5px; /*flytter elementet opp med 5px*/
+}
+
+.header .menu-btn{ /*når menyknappen ikke er trykket på/unchecked,*/
+  display:none; /*da hjemmes alle lste-elementene*/
+}
+
+.header .menu-btn:hover ~.menu, .header .menu-btn:checked~.menu {
+  /*nar menyknappen er trykket pa, vil koden se etter (~) neste ledige sosken som har menu som class og endre max-height*/
+  display:block;
+  max-height: 500px; /* utvider høyden, får frem de tidligere gjemte elementene */
+}
+
+.header .menu:hover { 
+  display:block;
+  max-height: 500px;
+  /*når jeg har hover over [menu-btn], så finner jeg [.menu], da kan jeg hover over den og display liste-elementene under
+  max-height endrer høyden, holder listen nede selv om man ikke hover over menu */
+}
+
+.header .menu2{
+  clear:both; /*tvinger header og den uordnede listen "menu" under logoen. utlikner "float:left" linje 40*/
+  max-height:0; /*gjemmer liste-elementene*/
+  transition:max-height .2s ease-out; /*forbereder til drop-drown*/
+}
+.header .menu2-icon .nav-icon2{
+  color: #73648A;
+  display: list-item; /*iconet til meny2 er list-item*/
+}
+
+.header .menu2-btn{
+  display:none;
+}
+
+.header .menu2-btn:hover ~.menu2, .header .menu2-btn:checked~.menu2 {
+  display:block;
+  max-height: 500px;
+}
+
+
+.header .menu2:hover {
+  display: block; 
+  max-height: 500px;
+}
+
+
+/* .header .menu2-btn:checked~.menu2{
+  max-height: 500px;
+} */
+
+/*#endregion*/
+
+/*#region Bilde-boks*/
+
+#top_box {
+  position: relative;
+  margin: auto;          /* 10 px under elementet, auto midtstiller det*/
+  margin-bottom: 10px;
+  padding: 10px;             /* luft mellom kantlinjene og innholdet */
+  padding-bottom:0px;
+  background-color: #A8AEC1;   /* lavendel bakgrunnsfarge */
+  border: 1px solid #A8AEC1; /* lavendel kantlinje */
+  text-align: center; /*setter top_img i midten*/  
+} 
+/*#endregion*/
+
+/*#region slideshow*/
+* {box-sizing:border-box}
+
+.img { 
+  vertical-align: middle;
+  }
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto; 
+  }
+
+
+/*slideshow container */
+.img_slideshow { /*gjemmer bildene ved default*/
+  display:none;  
+  }
+
+
+.prev, .next{ /*next og previws buttons*/
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 15px;
+  color: #73648A;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next { /*setter next button til høyre på bildet*/
+  right:0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev{
+  left: 0;
+}
+
+.prev:hover, .next:hover { /*endrer farge ved hover*/
+  background-color: rgba(0,0,0,0.8); /*gjør den sort, men litt gjennomsiktig*/
+}
+
+.dot { /*prikkene under bildene*/
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 1px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover { /*når man hovrer over prikkene*/
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: none;
+  animation-duration: 1.5s;
+}
+
+
+/* Minker tekststørrelse på mindre skjermer */
+@media only screen and (max-width: 400px) { /*når skjermen er 300px eller smalere blir skriftstørrelsen 11px*/
+  .prev, .next,.text {font-size: 11px}
+}
+
+@media only screen and (max-width: 400px) {
+  .dot{
+    height: 7px;
+    width: 7px;
+  }
+}
+
+
+/*#endregion*/
+
+/*#region Avsnitt om meg */
+h3{
+  background-color: #A8AEC1;
+  text-align: center;
+  color: #453750;
+  padding: 10px 50px;
+  margin:0
+}
+.tekst_om_meg {
+  background-color: #A8AEC1;
+  text-align: center;
+  color: #453750;
+  padding: 10px 50px;
+  margin:0
+}
+/*#endregion*/
+
+/* #region Produktvisning */
+
+
+#gallery {
+    display: grid; /*CSS grid*/
+    gap: 10px; /* gir likt mellomrom mellom kolonner og rader*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+    /*auto-fit sørger for at antall kolonner tilpasses til så mange det er plass til*/
+    /*kolonnene blir ikke smalere enn 300x, men utvider seg til 1fr, altså minmax= minimum-bredde og max-bredde*/
+    /*bestemmer kolonnenes minimum og maksimum størrelse, slik at 
+    de tilpasser seg nettleseren/skjermes skalering */
+  }
+
+  #gallery > div {
+    background-color: #A8AEC1;
+    text-align: center;
+    padding: 10px;
+  }
+  
+    .bag:hover {
+      width: 259.2px;
+      height: 345.6px;
+      padding: 19.2px 14.4px;
+      transition: 0.2s;
+    }
+  #gallery a{
+    background-color:#A8AEC1;  /*gjør */
+  }
+  /*#endregion*/
+
+/*#region info_boks*/
+
+  #info_boks{
+    height: 300px;
+    width:auto;
+    margin-top: 10px ;          /* 10 px under elementet, auto midtstiller det*/
+    margin-bottom: none;
+    padding: 10px;             /* luft mellom kantlinjene og innholdet */
+    background-color: #A8AEC1;   /* lavendel bakgrunnsfarge */
+    border: 1px solid #A8AEC1; /* lavendel kantlinje */
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  #kontakt_info > p{
+    margin-top: 50px;
+    text-align: center;
+    color: #453750;
+    font-weight: bold;
+  }
+  /*#endregion*/
+
+
