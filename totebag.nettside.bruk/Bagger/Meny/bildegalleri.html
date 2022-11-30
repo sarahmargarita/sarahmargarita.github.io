@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildegalleri</title>
+    <link rel="icon" type="image/x-icon" href="Bilde2.png"> <!--gir ikon til tittel-->
+    <link rel="stylesheet" href="../totebag.css"> <!--link til css ark-->
+</head>
+<style> /*egen CSS styling som kun gjelder for denne siden, separert fra felles stilark*/
+    * { /*velger alle elementene */
+  box-sizing: border-box; /*Inkluderer padding og border i elementets fulle størrelse*/
+}
+
+.row { 
+  display: flex;
+  flex-wrap: wrap; /*i stedte for at bildene blir mindre, legger de seg under hverandre*/
+  padding: 0 4px;
+}
+
+
+.column {
+  flex: 25%; /*fire like kollonner ved siden av hverandre*/
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+
+@media (max-width: 800px) { /*når skjermen er på 800px eller mindre blir det 2 kollonner i stedet for fire*/
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+
+@media (max-width: 600px) { /*når skjermen er 600px eller mindre plasserer de to kollonne seg nder hverandre */
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+    <div id="topptekst">
+        <div id="div_meny">
+            <header class="header"> <!--mer eller mindre samme funksjon som div, container-->
+                <!-- <a href="/" class="logo">Min Totebag</a> kun html for logo, ingen funksjon pa menyen -->
+                <input class="menu-btn" type="checkbox" id="menu-btn">   <!--gjor det mulig a trykke av og pa menyknappinput:brukerstyrt-->
+                <label class="menu-icon" for="menu-btn"><span class="nav-icon"></span></label> <!--merknad for checkboxen-->
+                <!--menyikonet er det som er inni span-->
+                <ul class="menu"> <!--uordnet liste-->
+                    <li><a href="../../Min_totebag3.html.html">Hovedsiden</a></li> <!--list items, liste elementer-->
+                    <li><a href="../Om.html">Om meg</a></li>
+                    <li><a href="./bildegalleri.html">Bildegalleri</a></li>
+                    <li><label class="menu2-icon" for="menu2-btn" href="#totebags">Totebags</label></li>
+                        <input class="menu2-btn" type="checkbox" id="menu2-btn">
+                        <ul class="menu2">
+                            <li><a href="#broderi">Broderi</a></li>
+                            <li><a href="./print.html">Print</a></li>
+                        </ul>
+                </ul>
+            </header>
+        </div>
+
+        <div id="div_overskrift">
+            <h1>Bildegalleri</h1>
+        </div>
+
+        <div>
+            <!--ekstra div for å "hacke" logoen til høyre-->
+        </div>
+
+        <div id="div_logo" >
+            <a href="../Om.html"><h4>OM</h4> </a>
+        </div>     
+    </div>
+
+  
+  <!-- Photo Grid -->
+  <div class="row"> 
+    <div class="column">
+      <img src="./bilder2/top_img_5.jpg" style="width:100%">
+      <img src="./bilder2/heart.JPG" style="width:100%">
+      <img src="./bilder2/top_img_2.jpg" style="width:100%">
+      <img src="./bilder2/samling1.jpg" style="width:100%">
+      <img src="./bilder2/face.jpg" style="width:100%">
+      <img src="./bilder2/mirror.per.kutt.jpg" style="width:100%">
+    </div>
+    
+    <div class="column">
+      <img src="./bilder2/wave.jpg" style="width:100%">
+      <img src="./bilder2/sting.per.jpg" style="width:100%">
+      <img src="./bilder2/top_img_5.jpg" style="width:100%">
+      <img src="./bilder2/butterflies.jpg" style="width:100%">
+      <img src="./bilder2/top_img_3.jpg" style="width:100%">
+      <img src="./bilder2/top_img_1.jpg" style="width:100%">
+    </div> 
+     
+    <div class="column">
+      <img src="./bilder2/top_img_1.jpg" style="width:100%">
+      <img src="./bilder2/plant.jpg" style="width:100%">
+      <img src="./bilder2/top_img_2.jpg" style="width:100%">
+      <img src="./bilder2/samling1.jpg" style="width:100%">
+      <img src="./bilder2/faces.per.kutt.jpg" style="width:100%">
+      <img src="./bilder2/sting.per.jpg" style="width:100%">
+    </div>
+    
+    <div class="column">
+      <img src="./bilder2/butterfly.per.JPG" style="width:100%">
+      <img src="./bilder2/samling2.jpg" style="width:100%">
+      <img src="./bilder2/top_img_5.jpg" style="width:100%">
+      <img src="./bilder2/mirror.jpg" style="width:100%">
+      <img src="./bilder2/top_img_3.jpg" style="width:100%">
+      <img src="./bilder2/top_img_4.jpg" style="width:100%">
+    </div> 
+  </div>
+    
+</body>
+</html>

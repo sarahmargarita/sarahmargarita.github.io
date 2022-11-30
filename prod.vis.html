@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch your back</title>   
+</head>
+
+<style>
+body {
+    background-color: #B5D2CB;
+}
+
+#hoved {
+  width: 100%;
+  height: auto;
+  display: grid;
+  gap: 5px;
+  background-color: #B5D2CB;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 0.3fr repeat(3, 1fr);
+  grid-template-areas: "t t t t t t"
+                       "v1 v2 v2 h h h"
+                       "v1 v2 v2 h h h"
+                       "b b b b b b";
+}
+
+#hoved > div{
+    background-color:#B5D2CB;
+    border: 5px solid #A8AEC1;
+    color: #73648A;
+    padding: 15px;
+}
+
+.topp    { 
+    grid-area : t; 
+    height: 50px; 
+    padding-top:2px;
+
+}
+.venstre1 { 
+    grid-area : v1; 
+    height: 525px;
+}
+.venstre2 { 
+    grid-area : v2; 
+    height: 525px;
+    text-align: center;
+   
+}
+
+.hoyre   { 
+    grid-area : h; 
+    height: 525px;
+}
+.bunn    { 
+    grid-area : b; 
+    height:auto;
+}
+
+</style>
+
+<body>
+<div id="hoved">
+    <div class="topp"> topp </div>
+    <div class="venstre1"> venstre1 </div>
+    <div class="venstre2"> 
+        <img id="prods.bag" src="./totebag.nettside.bruk/Bilder/lady.back.jpg" width="356" height="527"  alt="ladys back bag">
+    </div>
+    <div class="hoyre"> høyre </div>
+    <div class="bunn"> bunn </div>
+</div>
+
+</body>
+</html>
