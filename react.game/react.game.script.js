@@ -59,7 +59,8 @@ function afterStart() {
         if (scoreHistory.length >= 5) {
             clickArea.removeEventListener("click", afterStart)
             //når man har trykket fem ganger, stopper/fjerner event og funksjon: ("click", afterStart)
-            const average = scoreHistory.reduce ((a, b) => a + b, 0) / scoreHistory.length;
+            const average = scoreHistory.reduce ((a, b) => a + b, 0) / scoreHistory.length; 
+            //innlagt funksjon "reduse()" regner gjennomsnittet av elementene i listen scoreHistory
             displayText.textContent = `Gjennomsnittstiden din er på ${average} ms. Woop Woop!`;
 
         }
@@ -68,4 +69,10 @@ function afterStart() {
     }
 }
 
+function replace() {
+    location.replace("file:///C:/Users/samaa002/Desktop/Informasjonsteknologi%201/sarahmargarita.github.io/index.html")
+  }
 
+  function bekreft() {
+    return "";
+  }
