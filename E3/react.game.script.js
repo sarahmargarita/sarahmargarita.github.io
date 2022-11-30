@@ -70,7 +70,7 @@ function afterStart() {
 }
 
 function replace() {
-    location.replace("file:///C:/Users/samaa002/Desktop/Informasjonsteknologi%201/sarahmargarita.github.io/index.html")
+    location.replace("../E2/index.html")
   }
 
   function bekreft() {
