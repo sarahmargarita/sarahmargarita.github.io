@@ -34,13 +34,14 @@ function play() { //mens spillet går
     }, msTillChange);
 }
 
-function addScore(score) {
-    scoreHistory.unshift(score);
+function addScore(score) { //legger til tiden i listen til høyre
+    scoreHistory.unshift(score); //legger nyeste tid øverst  stedet for nedert(push)
 
-    for (let i = 0; i < scoreHistory.length; i++) {
-        const score = scoreHistory[i];
+    for (let i = 0; i < scoreHistory.length; i++) { //ny verdi for hver runde
+        const score = scoreHistory[i]; // legger til i listen
 
-        scoreElements[i].textContent = ` ${score} ms `;        
+        scoreElements[i].textContent = ` ${score} ms `;    
+        //teksen/scoren som vises i listen 
     }
 }
 
@@ -58,8 +59,13 @@ function afterStart() {
         if (scoreHistory.length >= 5) {
             clickArea.removeEventListener("click", afterStart)
             //når man har trykket fem ganger, stopper/fjerner event og funksjon: ("click", afterStart)
+            const average = scoreHistory.reduce ((a, b) => a + b, 0) / scoreHistory.length;
+            displayText.textContent = `Gjennomsnittstiden din er på ${average} ms. Woop Woop!`;
+
         }
     } else {    //hvis bruker har trykket
         play();  //kjør spill
     }
 }
+
+

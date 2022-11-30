@@ -1,7 +1,7 @@
 #app{ /*gjelder hele spillet*/
     display: flex;
     height: 500px;
-    width: 700px;
+    width: 900px;
     font-family: sans-serif;
     font-weight: bold;
 }
