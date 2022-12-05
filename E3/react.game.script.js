@@ -7,8 +7,8 @@ const scoreElements = document.querySelectorAll(".score"); //querySelectorAll fo
 
 const scoreHistory = []; //en tom array, array kan holde flere verdier undre samme navn, i dette tilfellet; brukerens score history
 
-//tar minst 3 sekunder og maks syv sekunder før skjermen endrer farge etter start-trykk (3000 og 7000 millisekunder )
-const MINIMUM_MS_TILL_CHANGE = 3000; //forhindrer umiddelbar endring
+//tar minst 2 sekunder og maks syv sekunder før skjermen endrer farge etter start-trykk (2000 og 7000 millisekunder )
+const MINIMUM_MS_TILL_CHANGE = 2000; //forhindrer umiddelbar endring
 const MAXIMUM_MS_TILL_CHANGE = 7000;
 
 let msSinceEpochOnTimeout = 0;  //forteller oss antall sekunder bruker på å trykke på knappen
